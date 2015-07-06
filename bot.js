@@ -8,6 +8,7 @@ function respond() {
       botRegex = /^\/cool guy/; botRegexSalt = /^\/salt/
       botRegexBr = /^\/bracket/; botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/
       botRegexSh = /^\/shrug/; botRegexSt = /^\/standings/; botRegexDunk = /^\/dunk/
+      botRegexSTP = /^\/sleep tight pupper/
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
@@ -49,6 +50,11 @@ function respond() {
     postMessage("http://www.strangecosmos.com/images/content/181357.gif");
     this.res.end();
   } 
+   else if(request.text && botRegexSTP.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://i.groupme.com/600x582.jpeg.89e616ed9ab94195b5890c0836f6fa3a.large");
+    this.res.end();
+  }
   else {
     console.log("don't care");
     this.res.writeHead(200);
