@@ -53,7 +53,7 @@ function respond() {
     this.res.writeHead(200);
     postMessage("http://www.strangecosmos.com/images/content/181357.gif");
     this.res.end();
-  } 
+  
 }
 
 function postMessage(response) {
