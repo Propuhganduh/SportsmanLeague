@@ -43,6 +43,11 @@ function respond() {
     this.res.writeHead(200);
     postMessage("https://docs.google.com/spreadsheets/d/18lBep1t4vSYZ3j96rCK0IDld_501yZ7OPTDEJKPwT4Y/edit#gid=559608228");
     this.res.end();
+  }
+   else if(request.text && botRegexDunk.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://www.strangecosmos.com/images/content/181357.gif");
+    this.res.end();
   } 
   else {
     console.log("don't care");
