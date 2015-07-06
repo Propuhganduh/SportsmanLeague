@@ -7,7 +7,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/; botRegexSalt = /^\/salt/
       botRegexBr = /^\/bracket/; botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/
-      botRegexSh = /^\/shrug/; botRegexSt = /^\/standings/; botRegexMk = /^\/mick/
+      botRegexSh = /^\/shrug/; botRegexSt = /^\/standings/
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
@@ -44,12 +44,6 @@ function respond() {
     postMessage("https://docs.google.com/spreadsheets/d/18lBep1t4vSYZ3j96rCK0IDld_501yZ7OPTDEJKPwT4Y/edit#gid=559608228");
     this.res.end();
   } 
-  else if(request.text && botRegexMk.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://i1.wp.com/whineylimey.com/wp-content/uploads/2014/03/wordoftheweek.jpg?resize=720%2C320");
-    this.res.end();
-  }
-  
   else {
     console.log("don't care");
     this.res.writeHead(200);
