@@ -7,7 +7,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/; botRegexSalt = /^\/salt/
       botRegexBr = /^\/bracket/; botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/
-      botRegexSh = /^\/shrug/; botRegexSt = /^\/standings/
+      botRegexSh = /^\/shrug/; botRegexSt = /^\/standings/; botRegexDunk = /^\/dunk/
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
@@ -49,6 +49,11 @@ function respond() {
     this.res.writeHead(200);
     this.res.end();
   }
+  else if(request.text && botRegexDunk.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://www.strangecosmos.com/images/content/181357.gif");
+    this.res.end();
+  } 
 }
 
 function postMessage(response) {
