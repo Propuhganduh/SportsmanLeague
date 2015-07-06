@@ -5,80 +5,46 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexBan = /^\/ban/
-      botRegexAd=/^\/advance/;botRegexShrug = /^\/shrug/; botRegexSC = /^\/SDL/i;
-      botRegexP = /^\/PDL/i;  botRegexDg = /^\/doge/i; botRegexCjw = /^\/JEW/; botRegexJw = /^\/Jew/;
-      botRegexJew = /^\/jew/; botRegexJoo = /^\/joo/;
-  var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
-                ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
-                "MIA","BUF","SF","WAS","NYJ","TB"]
+      botRegex = /^\/cool guy/; botRegexSalt = /^\/salt/
+      botRegexBr = /^\/bracket/; botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/
+      botRegexSh = /^\/shrug/; botRegexSt = /^\/standings/
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
     this.res.end();
   } 
-  else if(request.text && botRegexDL.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("");
-    this.res.end();
-  } 
   else if(request.text && botRegexSalt.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("");
+    postMessage("https://i.imgur.com/B5BSVqH.png");
+    this.res.end();
+  }
+  else if(request.text && botRegexBr.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("https://docs.google.com/spreadsheets/d/18lBep1t4vSYZ3j96rCK0IDld_501yZ7OPTDEJKPwT4Y/edit#gid=0");
+    this.res.end();
+  }  
+
+  else if(request.text && botRegexTw.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://www.twitch.tv/"+request.text.substring(8,request.text.length));
     this.res.end();
   } 
-  else if(request.text && botRegexAd.test(request.text)) {
+  else if(request.text && botRegexSb.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("");
-    this.res.end();
-  }
-  else if(request.text && botRegexBan.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("");
+    postMessage("http://www.reddit.com/r/rocketleague");
     this.res.end();
   } 
-  else if(request.text && botRegexShrug.test(request.text)) {
+  else if(request.text && botRegexSh.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("");
+    postMessage("¯\\_(ツ)_/¯");
     this.res.end();
   } 
-  else if(request.text && botRegexSC.test(request.text)) {
+  else if(request.text && botRegexSt.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("");
-    this.res.end();
-  }
-  else if(request.text && botRegexP.test(request.text)) {
-    this.res.writeHead(200);
-    var req = request.text.substring(5,request.text.length);
-    var rep = req.replace(/ /,"+");
-    postMessage("");
+    postMessage("https://docs.google.com/spreadsheets/d/18lBep1t4vSYZ3j96rCK0IDld_501yZ7OPTDEJKPwT4Y/edit#gid=559608228");
     this.res.end();
   } 
-  else if(request.text && botRegexDg.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
-    this.res.end();
-  } 
-  else if(request.text && botRegexCjw.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
-    this.res.end();
-  }
-  else if(request.text && botRegexJw.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
-    this.res.end();
-  }
-  else if(request.text && botRegexJew.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
-    this.res.end();
-  }
-  else if(request.text && botRegexJoo.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://i.groupme.com/720x526.jpeg.87c35e3533ee4c8a99d49a3cd8390c29.large");
-    this.res.end();
-  }
+  
   else {
     console.log("don't care");
     this.res.writeHead(200);
